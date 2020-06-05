@@ -11,18 +11,6 @@ const Gengar = () => {
 
   const { r, g, b } = hexToRgb(theme.colors.accent) || {};
 
-  const Photo = () =>
-    data.profile.photo !== '' && (
-      <img
-        className="w-24 h-24 rounded-full mr-4 object-cover border-4"
-        style={{
-          borderColor: theme.colors.background,
-        }}
-        src={data.profile.photo}
-        alt="Resume Photograph"
-      />
-    );
-
   const FullName = () => (
     <div>
       <h1 className="text-2xl font-bold leading-tight">{data.profile.firstName}</h1>
@@ -84,15 +72,6 @@ const Gengar = () => {
       {x.hobby}
     </li>
   );
-
-  const Hobbies = () =>
-    data.hobbies &&
-    data.hobbies.enable && (
-      <div className="mb-6">
-        <Heading title={data.hobbies.heading} />
-        <ul>{data.hobbies.items.map(HobbyItem)}</ul>
-      </div>
-    );
 
   const EducationItem = x => (
     <div key={x.id} className="mb-3">
@@ -208,51 +187,6 @@ const Gengar = () => {
       </div>
     );
 
-  const LanguageItem = x => (
-    <div key={x.id} className="grid grid-cols-2 items-center py-2">
-      <h6 className="text-sm font-medium">{x.key}</h6>
-      <div className="flex">
-        {x.level && <div className="font-bold text-sm mr-2">{x.level}</div>}
-        {x.rating !== 0 && (
-          <div className="flex">
-            {Array.from(Array(x.rating)).map((_, i) => (
-              <i key={i} className="material-icons text-lg" style={{ color: theme.colors.accent }}>
-                star
-              </i>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const Languages = () =>
-    data.languages &&
-    data.languages.enable && (
-      <div>
-        <Heading title={data.languages.heading} />
-        <div className="mb-6">{data.languages.items.filter(x => x.enable).map(LanguageItem)}</div>
-      </div>
-    );
-
-  const ExtraItem = x => (
-    <div key={x.id} className="text-sm my-1">
-      <h6 className="text-xs font-bold">{x.key}</h6>
-      <h6>{x.value}</h6>
-    </div>
-  );
-
-  const Extras = () =>
-    data.extras &&
-    data.extras.enable && (
-      <div>
-        <Heading title={data.extras.heading} />
-        <div className="grid grid-cols-2">
-          {data.extras.items.filter(x => x.enable).map(ExtraItem)}
-        </div>
-      </div>
-    );
-
   return (
     <div
       style={{
@@ -267,7 +201,6 @@ const Gengar = () => {
           style={{ backgroundColor: theme.colors.accent, color: theme.colors.background }}
         >
           <div className="flex items-center">
-            <Photo />
             <FullName />
           </div>
 
@@ -292,7 +225,6 @@ const Gengar = () => {
           style={{ backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)` }}
         >
           <Objective />
-          <Extras />
         </div>
 
         <div
@@ -300,8 +232,6 @@ const Gengar = () => {
           style={{ backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)` }}
         >
           <Skills />
-          <Hobbies />
-          <Languages />
           <Education />
           <Certifications />
         </div>

@@ -1,7 +1,4 @@
 {
-  "photoUrl": {
-    "label": "URL Адрес фотографии"
-  },
   "firstName": {
     "label": "Имя"
   },

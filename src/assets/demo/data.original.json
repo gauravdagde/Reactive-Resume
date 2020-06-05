@@ -2,7 +2,7 @@
   "data": {
     "profile": {
       "heading": "Profile",
-      "photo": "",
+      "photo": "https://i.imgur.com/Icr472Z.jpg",
       "firstName": "Nancy",
       "lastName": "Jackson",
       "subtitle": "Customer Sales Representative",
@@ -142,30 +142,54 @@
       "enable": true,
       "heading": "Skills",
       "items": [
-          {
-            "id": "2562d78a-3459-4370-8604-c81b00738db1",
-            "skill": "Customer Service Expertise"
-          },
-          {
-            "id": "58c31587-9770-4522-a34c-f5ad92fe33e5",
-            "skill": "High-Volume Call Center"
-          },
-          {
-            "id": "7aa9a4b1-a2bb-4bcd-8711-b66c0d246971",
-            "skill": "Team Leader/Problem Solver"
-          },
-          {
-            "id": "e7fd33e8-5d77-462d-8115-5be57f52832e",
-            "skill": "Call Center Management"
-          },
-          {
-              "id": "7bad2af1-c24d-4e01-b68b-be01cfa784ce",
-              "skill": "Teambuilding & Training"
-          },
-          {
-            "id": "64fe1710-c2d1-4f53-922e-a5d751eee967",
-            "skill": "Continuous Improvement"
-          }
+        "Customer Service Expertise",
+        "High-Volume Call Center",
+        "Team Leader/Problem Solver",
+        "Call Center Management",
+        "Teambuilding & Training",
+        "Continuous Improvement"
+      ]
+    },
+    "hobbies": {
+      "enable": true,
+      "heading": "Hobbies",
+      "items": ["Poetry", "Travelling", "Beatboxing", "Sketching"]
+    },
+    "languages": {
+      "enable": true,
+      "heading": "Languages",
+      "items": [
+        {
+          "id": "9d34cfcb-c9f0-4d25-ab27-cf81652dd1d0",
+          "key": "English (US)",
+          "value": 5,
+          "enable": true,
+          "level": "",
+          "rating": 5
+        },
+        {
+          "id": "3511a86b-7ea9-44ac-8144-6acc7f3bd54f",
+          "key": "Spanish",
+          "value": 4,
+          "enable": true,
+          "rating": 4
+        },
+        {
+          "id": "d1e17542-f7cc-473a-aa0e-978765907454",
+          "key": "Japanese",
+          "value": 4,
+          "enable": true,
+          "level": "N4",
+          "rating": 2
+        },
+        {
+          "id": "b1e8442a-7059-4c6f-8a9c-415383133b0e",
+          "key": "German",
+          "value": 3,
+          "enable": true,
+          "level": "B1",
+          "rating": 0
+        }
       ]
     },
     "references": {

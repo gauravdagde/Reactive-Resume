@@ -8,14 +8,6 @@ const ProfileTab = ({ data, onChange }) => {
 
   return (
     <div>
-      <TextField
-        className="mb-6"
-        label={t('profile.photoUrl.label')}
-        placeholder="https://i.imgur.com/..."
-        value={data.profile.photo}
-        onChange={v => onChange('data.profile.photo', v)}
-      />
-
       <div className="grid grid-cols-2 col-gap-4">
         <TextField
           className="mb-6"

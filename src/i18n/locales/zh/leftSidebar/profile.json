@@ -1,7 +1,4 @@
 {
-  "photoUrl": {
-    "label": "照片链接"
-  },
   "firstName": {
     "label": "名"
   },

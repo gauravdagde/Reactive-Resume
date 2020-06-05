@@ -1,7 +1,4 @@
 {
-  "photoUrl": {
-    "label": "Link til billede"
-  },
   "firstName": {
     "label": "Fornavn"
   },

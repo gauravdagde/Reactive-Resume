@@ -8,16 +8,6 @@ const Onyx = () => {
   const { state } = context;
   const { data, theme } = state;
 
-  const Photo = () =>
-    data.profile.photo && (
-      <img
-        className="rounded object-cover mr-4"
-        src={data.profile.photo}
-        alt="Resume Photograph"
-        style={{ width: '120px', height: '120px' }}
-      />
-    );
-
   const Profile = () => (
     <div>
       <h1 className="font-bold text-4xl" style={{ color: theme.colors.accent }}>
@@ -158,15 +148,6 @@ const Onyx = () => {
     </span>
   );
 
-  const Hobbies = () =>
-    data.hobbies &&
-    data.hobbies.enable && (
-      <div>
-        <Heading title={data.hobbies.heading} />
-        <div className="mt-1 flex flex-wrap">{data.hobbies.items.map(HobbyItem)}</div>
-      </div>
-    );
-
   const SkillItem = x => (
     <span
       key={x.id}
@@ -186,33 +167,6 @@ const Onyx = () => {
       <div>
         <Heading title={data.skills.heading} />
         <div className="mt-1 flex flex-wrap">{data.skills.items.map(SkillItem)}</div>
-      </div>
-    );
-
-  const LanguageItem = x => (
-    <div key={x.id} className="grid grid-cols-2 items-center py-2">
-      <h6 className="text-sm font-medium">{x.key}</h6>
-      <div className="flex">
-        {x.level && <div className="font-bold text-sm mr-2">{x.level}</div>}
-        {x.rating !== 0 && (
-          <div className="flex">
-            {Array.from(Array(x.rating)).map((_, i) => (
-              <i key={i} className="material-icons text-lg" style={{ color: theme.colors.accent }}>
-                star
-              </i>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const Languages = () =>
-    data.languages &&
-    data.languages.enable && (
-      <div>
-        <Heading title={data.languages.heading} />
-        <div className="w-3/4">{data.languages.items.filter(x => x.enable).map(LanguageItem)}</div>
       </div>
     );
 
@@ -237,24 +191,6 @@ const Onyx = () => {
       </div>
     );
 
-  const ExtraItem = x => (
-    <tr key={x.id}>
-      <td className="border font-medium px-4 py-2 text-sm">{x.key}</td>
-      <td className="border px-4 py-2 text-sm">{x.value}</td>
-    </tr>
-  );
-
-  const Extras = () =>
-    data.extras &&
-    data.extras.enable && (
-      <div>
-        <Heading title={data.extras.heading} />
-        <table className="table-auto">
-          <tbody>{data.extras.items.filter(x => x.enable).map(ExtraItem)}</tbody>
-        </table>
-      </div>
-    );
-
   return (
     <div
       className="p-10"
@@ -266,7 +202,6 @@ const Onyx = () => {
     >
       <div className="grid grid-cols-4 items-center">
         <div className="col-span-3 flex items-center">
-          <Photo />
           <Profile />
         </div>
 
@@ -299,15 +234,10 @@ const Onyx = () => {
 
       <div className="grid grid-cols-2 gap-6">
         <Skills />
-        <Hobbies />
       </div>
 
       <References />
-
-      <div className="grid grid-cols-2 gap-6">
-        <Extras />
-        <Languages />
-      </div>
+      
     </div>
   );
 };
