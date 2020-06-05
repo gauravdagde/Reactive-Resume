@@ -53,24 +53,9 @@ const initialState = {
       heading: 'Skills',
       items: [],
     },
-    hobbies: {
-      enable: true,
-      heading: 'Hobbies',
-      items: [],
-    },
-    languages: {
-      enable: true,
-      heading: 'Languages',
-      items: [],
-    },
     references: {
       enable: true,
       heading: 'References',
-      items: [],
-    },
-    extras: {
-      enable: true,
-      heading: 'Personal Information',
       items: [],
     },
   },
@@ -90,7 +75,7 @@ const initialState = {
   },
 };
 
-const reducer = (state, { type, payload }) => {
+const reducer = (state = initialState, { type, payload }) => {
   let items;
   const newState = JSON.parse(JSON.stringify(state));
 
