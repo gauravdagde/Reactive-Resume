@@ -1,7 +1,4 @@
 {
-  "photoUrl": {
-    "label": "URL на снимката"
-  },
   "firstName": {
     "label": "Лично име"
   },

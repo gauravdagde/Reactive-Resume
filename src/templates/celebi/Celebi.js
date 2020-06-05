@@ -17,7 +17,8 @@ const styles = {
     color: 'white',
     backgroundColor: '#222',
     height: '160px',
-    paddingLeft: '270px',
+    display: 'flex',
+    alignItems: 'center'
   },
   section: {
     marginTop: '167px',
@@ -39,20 +40,6 @@ const Celebi = () => {
       {title}
     </h5>
   );
-
-  const Photo = () =>
-    data.profile.photo !== '' && (
-      <div className="relative z-40">
-        <img
-          className="w-full object-cover object-center"
-          src={data.profile.photo}
-          alt="Resume Photograph"
-          style={{
-            height: '160px',
-          }}
-        />
-      </div>
-    );
 
   const Header = () => (
     <header style={styles.header}>
@@ -152,20 +139,6 @@ const Celebi = () => {
       </div>
     );
 
-  const Hobbies = () =>
-    data.hobbies.enable && (
-      <div className="mb-6">
-        <Heading title="Hobbies" className="w-3/4 mx-auto" />
-        <ul className="list-none text-sm">
-          {data.hobbies.items.map(x => (
-            <li key={x} className="my-2">
-              {x}
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-
   const ReferenceItem = x => (
     <div key={x.id} className="flex flex-col">
       <h6 className="text-sm font-semibold">{x.name}</h6>
@@ -184,33 +157,6 @@ const Celebi = () => {
         <div className="grid grid-cols-2 col-gap-4 row-gap-2">
           {data.references.items.filter(x => x.enable).map(ReferenceItem)}
         </div>
-      </div>
-    );
-
-  const LanguageItem = x => (
-    <div key={x.id} className="grid grid-cols-2 items-center py-2">
-      <h6 className="text-xs font-medium text-left">{x.key}</h6>
-      <div className="flex">
-        {x.level && <div className="font-bold text-sm mr-2">{x.level}</div>}
-        {x.rating !== 0 && (
-          <div className="flex">
-            {Array.from(Array(x.rating)).map((_, i) => (
-              <i key={i} className="material-icons text-lg" style={{ color: theme.colors.accent }}>
-                star
-              </i>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const Languages = () =>
-    data.languages &&
-    data.languages.enable && (
-      <div className="w-3/4 mx-auto mb-6">
-        <Heading title={data.languages.heading} />
-        <div>{data.languages.items.filter(x => x.enable).map(LanguageItem)}</div>
       </div>
     );
 
@@ -248,22 +194,6 @@ const Celebi = () => {
       </div>
     );
 
-  const ExtraItem = x => (
-    <div key={x.id} className="my-3">
-      <h6 className="text-xs font-bold">{x.key}</h6>
-      <div className="text-sm">{x.value}</div>
-    </div>
-  );
-
-  const Extras = () =>
-    data.extras &&
-    data.extras.enable && (
-      <div className="mb-6">
-        <Heading title={data.extras.heading} className="w-3/4 mx-auto" />
-        {data.extras.items.filter(x => x.enable).map(ExtraItem)}
-      </div>
-    );
-
   return (
     <div
       style={{
@@ -275,15 +205,11 @@ const Celebi = () => {
       <div className="grid grid-cols-12">
         <div
           className="sidebar col-span-4 pb-8 ml-8 z-10 text-center"
-          style={{ backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)` }}
+          style={{ backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)`, marginTop: '160px' }}
         >
-          <Photo />
           <Contact />
           <Skills />
-          <Hobbies />
-          <Languages />
           <Certifications />
-          <Extras />
         </div>
         <div className="col-span-8">
           <Header />

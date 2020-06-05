@@ -1,7 +1,4 @@
 {
-  "photoUrl": {
-    "label": "Photo URL"
-  },
   "firstName": {
     "label": "First Name",
     "placeholder": "Jane"

@@ -1,7 +1,4 @@
 {
-  "photoUrl": {
-    "label": "URL Ảnh"
-  },
   "firstName": {
     "label": "Tên"
   },

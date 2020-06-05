@@ -2,7 +2,7 @@
   "data": {
     "profile": {
       "heading": "Profile",
-      "photo": "",
+      "photo": "https://i.imgur.com/Icr472Z.jpg",
       "firstName": "Nancy",
       "lastName": "Jackson",
       "subtitle": "Customer Sales Representative",
@@ -148,6 +148,48 @@
         "Call Center Management",
         "Teambuilding & Training",
         "Continuous Improvement"
+      ]
+    },
+    "hobbies": {
+      "enable": true,
+      "heading": "Hobbies",
+      "items": ["Poetry", "Travelling", "Beatboxing", "Sketching"]
+    },
+    "languages": {
+      "enable": true,
+      "heading": "Languages",
+      "items": [
+        {
+          "id": "9d34cfcb-c9f0-4d25-ab27-cf81652dd1d0",
+          "key": "English (US)",
+          "value": 5,
+          "enable": true,
+          "level": "",
+          "rating": 5
+        },
+        {
+          "id": "3511a86b-7ea9-44ac-8144-6acc7f3bd54f",
+          "key": "Spanish",
+          "value": 4,
+          "enable": true,
+          "rating": 4
+        },
+        {
+          "id": "d1e17542-f7cc-473a-aa0e-978765907454",
+          "key": "Japanese",
+          "value": 4,
+          "enable": true,
+          "level": "N4",
+          "rating": 2
+        },
+        {
+          "id": "b1e8442a-7059-4c6f-8a9c-415383133b0e",
+          "key": "German",
+          "value": 3,
+          "enable": true,
+          "level": "B1",
+          "rating": 0
+        }
       ]
     },
     "references": {

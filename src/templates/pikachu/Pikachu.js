@@ -8,17 +8,6 @@ const Pikachu = () => {
   const { state } = context;
   const { data, theme } = state;
 
-  const Photo = () =>
-    data.profile.photo !== '' && (
-      <div className="self-center col-span-4">
-        <img
-          className="w-48 h-48 rounded-full mx-auto object-cover"
-          src={data.profile.photo}
-          alt=""
-        />
-      </div>
-    );
-
   const Header = () => (
     <div
       className="h-48 rounded flex flex-col justify-center"
@@ -85,15 +74,6 @@ const Pikachu = () => {
     </span>
   );
 
-  const Hobbies = () =>
-    data.hobbies &&
-    data.hobbies.enable && (
-      <div>
-        <Heading title={data.hobbies.heading} />
-        <div className="flex flex-col mb-6">{data.hobbies.items.map(HobbyItem)}</div>
-      </div>
-    );
-
   const ReferenceItem = x => (
     <div key={x.id} className="flex flex-col">
       <h6 className="text-sm font-medium">{x.name}</h6>
@@ -111,51 +91,6 @@ const Pikachu = () => {
         <Heading title={data.references.heading} />
         <div className="grid grid-cols-2 gap-2 mb-6">
           {data.references.items.filter(x => x.enable).map(ReferenceItem)}
-        </div>
-      </div>
-    );
-
-  const LanguageItem = x => (
-    <div key={x.id} className="grid grid-cols-2 items-center py-2">
-      <h6 className="text-sm font-medium">{x.key}</h6>
-      <div className="flex">
-        {x.level && <div className="font-bold text-sm mr-2">{x.level}</div>}
-        {x.rating !== 0 && (
-          <div className="flex">
-            {Array.from(Array(x.rating)).map((_, i) => (
-              <i key={i} className="material-icons text-lg" style={{ color: theme.colors.accent }}>
-                star
-              </i>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const Languages = () =>
-    data.languages &&
-    data.languages.enable && (
-      <div>
-        <Heading title={data.languages.heading} />
-        <div className="mb-6">{data.languages.items.filter(x => x.enable).map(LanguageItem)}</div>
-      </div>
-    );
-
-  const ExtraItem = x => (
-    <div key={x.id} className="text-sm my-1">
-      <h6 className="text-xs font-bold">{x.key}</h6>
-      <h6 className="">{x.value}</h6>
-    </div>
-  );
-
-  const Extras = () =>
-    data.extras &&
-    data.extras.enable && (
-      <div>
-        <Heading title={data.extras.heading} />
-        <div className="grid grid-cols-2">
-          {data.extras.items.filter(x => x.enable).map(ExtraItem)}
         </div>
       </div>
     );
@@ -265,8 +200,6 @@ const Pikachu = () => {
       }}
     >
       <div className="grid grid-cols-12 col-gap-6 row-gap-8">
-        <Photo />
-
         <div className={`${data.profile.photo !== '' ? 'col-span-8' : 'col-span-12'}`}>
           <Header />
         </div>
@@ -292,8 +225,6 @@ const Pikachu = () => {
           </div>
 
           <Skills />
-          <Hobbies />
-          <Languages />
           <Certifications />
         </div>
 
@@ -302,7 +233,6 @@ const Pikachu = () => {
           <Education />
           <Awards />
           <References />
-          <Extras />
         </div>
       </div>
     </div>

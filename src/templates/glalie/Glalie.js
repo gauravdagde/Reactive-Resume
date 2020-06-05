@@ -11,15 +11,6 @@ const Glalie = () => {
 
   const { r, g, b } = hexToRgb(theme.colors.accent) || {};
 
-  const Photo = () =>
-    data.profile.photo !== '' && (
-      <img
-        className="w-40 h-40 rounded-full mx-auto"
-        src={data.profile.photo}
-        alt="Resume Photograph"
-      />
-    );
-
   const FullName = () => (
     <div className="text-4xl font-bold leading-none">
       <h1>{data.profile.firstName}</h1>
@@ -193,44 +184,6 @@ const Glalie = () => {
     </li>
   );
 
-  const Hobbies = () =>
-    data.hobbies &&
-    data.hobbies.enable && (
-      <div>
-        <Heading title={data.hobbies.heading} />
-        <ul className="pt-2 grid grid-cols-2 row-gap-3 text-left">
-          {data.hobbies.items.map(HobbyItem)}
-        </ul>
-      </div>
-    );
-
-  const LanguageItem = x => (
-    <div key={x.id} className="grid grid-cols-2 items-center py-2">
-      <h6 className="text-xs font-medium text-left">{x.key}</h6>
-      <div className="flex">
-        {x.level && <div className="font-bold text-sm mr-2">{x.level}</div>}
-        {x.rating !== 0 && (
-          <div className="flex">
-            {Array.from(Array(x.rating)).map((_, i) => (
-              <i key={i} className="material-icons text-lg" style={{ color: theme.colors.accent }}>
-                star
-              </i>
-            ))}
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
-  const Languages = () =>
-    data.languages &&
-    data.languages.enable && (
-      <div>
-        <Heading title={data.languages.heading} />
-        <div className="w-3/4">{data.languages.items.filter(x => x.enable).map(LanguageItem)}</div>
-      </div>
-    );
-
   const ReferenceItem = x => (
     <div key={x.id} className="flex flex-col">
       <h6 className="text-sm font-medium">{x.name}</h6>
@@ -252,24 +205,6 @@ const Glalie = () => {
       </div>
     );
 
-  const ExtraItem = x => (
-    <tr key={x.id}>
-      <td className="border font-medium px-4 py-2 text-xs">{x.key}</td>
-      <td className="border px-4 py-2 text-xs">{x.value}</td>
-    </tr>
-  );
-
-  const Extras = () =>
-    data.extras &&
-    data.extras.enable && (
-      <div>
-        <Heading title={data.extras.heading} />
-        <table className="mt-4 w-2/3 table-auto">
-          <tbody>{data.extras.items.filter(x => x.enable).map(ExtraItem)}</tbody>
-        </table>
-      </div>
-    );
-
   return (
     <div
       style={{
@@ -284,14 +219,11 @@ const Glalie = () => {
           style={{ backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)`, minHeight: '29.7cm' }}
         >
           <div className="grid grid-cols-1 gap-2">
-            <Photo />
             <FullName />
             <Subtitle />
           </div>
           <ContactInformation />
           <Objective />
-          <Hobbies />
-          <Languages />
           <Certifications />
         </div>
 
@@ -301,7 +233,6 @@ const Glalie = () => {
           <Skills />
           <Awards />
           <References />
-          <Extras />
         </div>
       </div>
     </div>

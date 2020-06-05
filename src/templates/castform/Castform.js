@@ -8,21 +8,6 @@ const Castform = () => {
   const { state } = context;
   const { data, theme } = state;
 
-  const Photo = () =>
-    data.profile.photo !== '' && (
-      <div className="mt-5 ml-5">
-        <img
-          className="w-32 h-32 rounded-full"
-          style={{
-            borderWidth: 6,
-            borderColor: theme.colors.background,
-          }}
-          src={data.profile.photo}
-          alt="Profile Photograph"
-        />
-      </div>
-    );
-
   const PersonalInformation = () => (
     <div className="pt-5 px-5">
       <h1 className="text-2xl font-bold">
@@ -99,15 +84,6 @@ const Castform = () => {
     </li>
   );
 
-  const Hobbies = () =>
-    data.hobbies &&
-    data.hobbies.enable && (
-      <div>
-        <Heading title={data.hobbies.heading} />
-        <ul className="list-none px-5">{data.hobbies.items.map(HobbyItem)}</ul>
-      </div>
-    );
-
   const Objective = () =>
     data.objective && data.objective.enable && <p className="m-5 text-sm">{data.objective.body}</p>;
 
@@ -152,44 +128,6 @@ const Castform = () => {
         <Heading light title={data.references.heading} />
         <div className="grid grid-cols-2 gap-6 px-5">
           {data.references.items.filter(x => x.enable).map(ReferenceItem)}
-        </div>
-      </div>
-    );
-
-  const LanguageItem = x => (
-    <div key={x.id} className="flex flex-col my-2">
-      <div className="flex justify-between items-center">
-        <h6 className="text-sm font-medium mb-1">{x.key}</h6>
-        {x.level !== '' && <div className="font-bold text-sm">{x.level}</div>}
-      </div>
-
-      {x.rating !== 0 && (
-        <div className="relative h-5">
-          <div
-            className="absolute mb-1 inset-0"
-            style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.25)',
-            }}
-          />
-          <div
-            className="absolute mb-1 inset-0 rounded"
-            style={{
-              width: `${x.rating * 20}%`,
-              backgroundColor: 'rgba(0, 0, 0, 0.3)',
-            }}
-          />
-        </div>
-      )}
-    </div>
-  );
-
-  const Languages = () =>
-    data.languages &&
-    data.languages.enable && (
-      <div>
-        <Heading title={data.languages.heading} />
-        <div className="px-5 mb-6">
-          {data.languages.items.filter(x => x.enable).map(LanguageItem)}
         </div>
       </div>
     );
@@ -255,22 +193,6 @@ const Castform = () => {
       </div>
     );
 
-  const ExtraItem = x => (
-    <div key={x.id} className="px-5 my-2">
-      <h6 className="text-xs font-bold">{x.key}</h6>
-      <div className="text-sm">{x.value}</div>
-    </div>
-  );
-
-  const Extras = () =>
-    data.extras &&
-    data.extras.enable && (
-      <div>
-        <Heading light title={data.extras.heading} />
-        {data.extras.items.filter(x => x.enable).map(ExtraItem)}
-      </div>
-    );
-
   return (
     <div
       style={{
@@ -279,7 +201,7 @@ const Castform = () => {
         color: theme.colors.primary,
       }}
     >
-      <div className="grid grid-cols-12">
+      <div className="grid grid-cols-12 nice">
         <div
           className="col-span-4"
           style={{
@@ -287,12 +209,9 @@ const Castform = () => {
             backgroundColor: theme.colors.accent,
           }}
         >
-          <Photo />
           <PersonalInformation />
           <ContactInformation />
           <Skills />
-          <Hobbies />
-          <Languages />
           <Certifications />
         </div>
         <div className="col-span-8">
@@ -301,7 +220,6 @@ const Castform = () => {
           <Education />
           <Awards />
           <References />
-          <Extras />
         </div>
       </div>
     </div>
