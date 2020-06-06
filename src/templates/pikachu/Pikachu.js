@@ -65,15 +65,6 @@ const Pikachu = () => {
       </div>
     );
 
-  const HobbyItem = x => (
-    <span
-      key={x}
-      className="leading-none rounded-lg text-sm font-medium bg-gray-300 py-3 my-1 px-4"
-    >
-      {x}
-    </span>
-  );
-
   const ReferenceItem = x => (
     <div key={x.id} className="flex flex-col">
       <h6 className="text-sm font-medium">{x.name}</h6>

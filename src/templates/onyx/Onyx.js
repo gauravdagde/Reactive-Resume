@@ -135,19 +135,6 @@ const Onyx = () => {
       </div>
     );
 
-  const HobbyItem = x => (
-    <span
-      key={x}
-      className="text-xs rounded-full px-3 py-1 font-medium my-2 mr-2"
-      style={{
-        backgroundColor: theme.colors.primary,
-        color: theme.colors.background,
-      }}
-    >
-      {x}
-    </span>
-  );
-
   const SkillItem = x => (
     <span
       key={x}

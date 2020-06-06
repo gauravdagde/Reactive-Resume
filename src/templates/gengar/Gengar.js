@@ -67,12 +67,6 @@ const Gengar = () => {
       </div>
     );
 
-  const HobbyItem = x => (
-    <li key={x} className="text-sm py-1">
-      {x}
-    </li>
-  );
-
   const EducationItem = x => (
     <div key={x.id} className="mb-3">
       <div className="flex justify-between items-center">

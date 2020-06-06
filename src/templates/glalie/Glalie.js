@@ -178,12 +178,6 @@ const Glalie = () => {
       </div>
     );
 
-  const HobbyItem = x => (
-    <li key={x} className="text-xs font-medium">
-      {x}
-    </li>
-  );
-
   const ReferenceItem = x => (
     <div key={x.id} className="flex flex-col">
       <h6 className="text-sm font-medium">{x.name}</h6>
