@@ -77,32 +77,32 @@ const initialState = {
 
 const reducer = (state = initialState, { type, payload }) => {
   let items;
-  const newState = JSON.parse(JSON.stringify(state));
+  const stateCopy = JSON.parse(JSON.stringify(state));
 
   switch (type) {
     case 'migrate_section':
-      return set({ ...newState }, `data.${payload.key}`, payload.value);
+      return set({ ...stateCopy }, `data.${payload.key}`, payload.value);
     case 'add_item':
-      items = get({ ...newState }, `data.${payload.key}.items`, []);
+      items = get({ ...stateCopy }, `data.${payload.key}.items`, []);
       items.push(payload.value);
-      return set({ ...newState }, `data.${payload.key}.items`, items);
+      return set({ ...stateCopy }, `data.${payload.key}.items`, items);
     case 'delete_item':
-      items = get({ ...newState }, `data.${payload.key}.items`, []);
-      remove(items, x => x.id === payload.value.id);
-      return set({ ...newState }, `data.${payload.key}.items`, items);
+      items = get({ ...stateCopy }, `data.${payload.key}.items`, []);
+      remove(items, x => x === payload.value);
+      return set({ ...stateCopy }, `data.${payload.key}.items`, items);
     case 'move_item_up':
-      items = get({ ...newState }, `data.${payload.key}.items`, []);
+      items = get({ ...stateCopy }, `data.${payload.key}.items`, []);
       move(items, payload.value, -1);
-      return set({ ...newState }, `data.${payload.key}.items`, items);
+      return set({ ...stateCopy }, `data.${payload.key}.items`, items);
     case 'move_item_down':
-      items = get({ ...newState }, `data.${payload.key}.items`, []);
+      items = get({ ...stateCopy }, `data.${payload.key}.items`, []);
       move(items, payload.value, 1);
-      return set({ ...newState }, `data.${payload.key}.items`, items);
+      return set({ ...stateCopy }, `data.${payload.key}.items`, items);
     case 'on_input':
-      return set({ ...newState }, payload.key, payload.value);
+      return set({ ...stateCopy }, payload.key, payload.value);
     case 'save_data':
-      localStorage.setItem('state', JSON.stringify(newState));
-      return newState;
+      localStorage.setItem('state', JSON.stringify(stateCopy));
+      return stateCopy;
     case 'import_data':
       if (payload === null) return initialState;
 
@@ -113,18 +113,18 @@ const reducer = (state = initialState, { type, payload }) => {
       }
 
       return {
-        ...newState,
+        ...stateCopy,
         ...payload,
       };
     case 'load_demo_data':
       return {
-        ...newState,
+        ...stateCopy,
         ...demoData,
       };
     case 'reset':
       return initialState;
     default:
-      return newState;
+      return stateCopy;
   }
 };
 
