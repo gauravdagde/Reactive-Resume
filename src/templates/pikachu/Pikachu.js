@@ -191,7 +191,7 @@ const Pikachu = () => {
       }}
     >
       <div className="grid grid-cols-12 col-gap-6 row-gap-8">
-        <div className={`${data.profile.photo !== '' ? 'col-span-8' : 'col-span-12'}`}>
+        <div className="col-span-12">
           <Header />
         </div>
 
