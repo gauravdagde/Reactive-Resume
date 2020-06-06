@@ -88,7 +88,7 @@ const reducer = (state = initialState, { type, payload }) => {
       return set({ ...newState }, `data.${payload.key}.items`, items);
     case 'delete_item':
       items = get({ ...newState }, `data.${payload.key}.items`, []);
-      remove(items, x => x === payload.value);
+      remove(items, x => x.id === payload.value.id);
       return set({ ...newState }, `data.${payload.key}.items`, items);
     case 'move_item_up':
       items = get({ ...newState }, `data.${payload.key}.items`, []);
