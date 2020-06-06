@@ -78,12 +78,6 @@ const Castform = () => {
       </div>
     );
 
-  const HobbyItem = x => (
-    <li key={x.id} className="text-sm my-2">
-      {x.hobby}
-    </li>
-  );
-
   const Objective = () =>
     data.objective && data.objective.enable && <p className="m-5 text-sm">{data.objective.body}</p>;
 
