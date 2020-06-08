@@ -10,24 +10,18 @@ const { data, theme } = state;
 
 const Profile = () => (
     <div>
-        <h1 className="font-bold text-4xl" style={{ color: theme.colors.accent }}>
+        <h1 className="font-bold text-5xl" style={{ color: theme.colors.accent }}>
             {data.profile.firstName} {data.profile.lastName}
         </h1>
         <h6 className="font-medium text-sm">{data.profile.subtitle}</h6>
-
-        <div className="flex flex-col mt-4 text-xs">
-            <span>{data.profile.address.line1}</span>
-            <span>{data.profile.address.line2}</span>
-            <span>{data.profile.address.line3}</span>
-        </div>
     </div>
 );
 
 const ContactItem = ({ icon, value, link = '#' }) =>
     value && (
-        <div className="flex items-center my-3">
+        <div className="flex items-center my-2">
             <span className="material-icons text-lg mr-2" style={{ color: theme.colors.accent }}>
-            {icon}
+                {icon}
             </span>
             <a href={link}>
             <span className="font-medium break-all">{value}</span>
@@ -36,7 +30,7 @@ const ContactItem = ({ icon, value, link = '#' }) =>
     );
 
 const Heading = ({ title }) => (
-    <h6 className="text-xs font-bold uppercase mt-6 mb-2" style={{ color: theme.colors.accent }}>
+    <h6 className="text-xs font-bold uppercase mt-6 mb-2 border-b" style={{ borderColor: theme.colors.accent, color: theme.colors.accent }}>
         {title}
     </h6>
 );
@@ -54,11 +48,11 @@ const WorkItem = x => (
     <div key={x.id} className="mt-3">
         <div className="flex justify-between">
             <div>
-                <h6 className="font-semibold">{x.title}{x.location ? ', ' : ''}{x.location}</h6>
-                <p className="text-xs">{x.role}</p>
+            <h6 className="font-semibold">{x.title}{x.location ? ', ' : ''}{x.location}</h6>
+            <p className="text-xs">{x.role}</p>
             </div>
             <span className="text-xs font-medium">
-                ({x.start} - {x.end})
+            ({x.start} - {x.end})
             </span>
         </div>
         <ReactMarkdown className="mt-2 text-sm" source={x.description} />
@@ -78,14 +72,14 @@ const EducationItem = x => (
     <div key={x.id} className="mt-3">
         <div className="flex justify-between">
             <div>
-                <h6 className="font-semibold">{x.name}{x.location ? ', ' : ''}{x.location}</h6>
-                <p className="text-xs">{x.major}</p>
+            <h6 className="font-semibold">{x.name}{x.location ? ', ' : ''}{x.location}</h6>
+            <p className="text-xs">{x.major}</p>
             </div>
             <div className="flex flex-col items-end">
-                <span className="text-sm font-bold">{x.grade}</span>
-                <span className="text-xs font-medium">
-                    ({x.start} - {x.end})
-                </span>
+            <span className="text-sm font-bold">{x.grade}</span>
+            <span className="text-xs font-medium">
+                ({x.start} - {x.end})
+            </span>
             </div>
         </div>
         <ReactMarkdown className="mt-2 text-sm" source={x.description} />
@@ -138,10 +132,9 @@ const Certifications = () =>
 const SkillItem = x => (
     <span
     key={x.id}
-    className="text-xs rounded-full px-3 py-1 font-medium my-2 mr-2"
+    className="text-xs py-1 rounded-full px-2 font-medium my-2 mr-2"
     style={{
-        backgroundColor: theme.colors.primary,
-        color: theme.colors.background,
+        backgroundColor: '#eeeeee',
     }}
     >
         {x.skill}
@@ -151,10 +144,10 @@ const SkillItem = x => (
 const Skills = () =>
     data.skills &&
     data.skills.enable && (
-        <div>
-            <Heading title={data.skills.heading} />
-            <div className="mt-1 flex flex-wrap">{data.skills.items.map(SkillItem)}</div>
-        </div>
+    <div>
+        <Heading title={data.skills.heading} />
+        <div className="mt-1 flex flex-wrap">{data.skills.items.map(SkillItem)}</div>
+    </div>
     );
 
 const ReferenceItem = x => (
@@ -180,12 +173,12 @@ const References = () =>
 
 return (
     <div
-    className="p-10"
-    style={{
-        fontFamily: theme.font.family,
-        backgroundColor: theme.colors.background,
-        color: theme.colors.primary,
-    }}
+        className="p-10"
+        style={{
+            fontFamily: theme.font.family,
+            backgroundColor: theme.colors.background,
+            color: theme.colors.primary,
+        }}
     >
         <div className="grid grid-cols-4 items-center">
             <div className="col-span-3 flex items-center">
@@ -208,13 +201,11 @@ return (
             </div>
         </div>
 
-        <hr className="my-6" />
-
         <Objective />
         <Work />
         <Education />
 
-        <div className="grid grid-cols-2 gap-6">
+        <div className={`grid ${data.awards.enable && data.certifications.enable ? 'grid-cols-2 gap-6' : ''}`}>
             <Awards />
             <Certifications />
         </div>
