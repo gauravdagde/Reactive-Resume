@@ -26,7 +26,8 @@
       "items": [
         {
           "id": "a208ec03-76e3-4428-ac5b-e17c3de4ac18",
-          "title": "On Point Electronics, NYC, NY",
+          "title": "On Point Electronics",
+          "location": "NYC, NY",
           "role": "Customer Service Representative",
           "start": "Jan 2013",
           "end": "July 2018",
@@ -36,7 +37,8 @@
         },
         {
           "id": "bd8649f2-42d1-4424-acaf-a02c08c3322c",
-          "title": "Excelsior Communications, NYC, NY",
+          "title": "Excelsior Communications",
+          "location": "NYC, NY",
           "role": "Customer Service Representative",
           "start": "Oct 2009",
           "end": "Dec 2012",
@@ -46,7 +48,8 @@
         },
         {
           "id": "dde47711-a7a6-424f-9751-73483a0ef4ed",
-          "title": "Pizza Hut, Newark, NJ",
+          "title": "Pizza Hut",
+          "location": "Newark, NJ",
           "role": "Waitress",
           "start": "Aug 2005",
           "end": "Sep 2009",
@@ -62,7 +65,8 @@
       "items": [
         {
           "id": "624f32ab-2d78-4052-86ad-1354fd41d754",
-          "name": "The City College of New York, NYC, NY",
+          "name": "The City College of New York",
+          "location": "NYC, NY",
           "major": "MS in Computer Science",
           "start": "Sep 2001",
           "end": "Aug 2002",
@@ -73,7 +77,8 @@
         },
         {
           "id": "71a9852f-ed14-4281-bff2-4db9a2275978",
-          "name": "University of California, Berkeley, CA",
+          "name": "University of California",
+          "location": "Berkeley, CA",
           "major": "BS in Computer Science",
           "start": "Sep 1997",
           "end": "Aug 2001",
