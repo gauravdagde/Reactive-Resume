@@ -2,6 +2,9 @@
   "name": {
     "label": "Name"
   },
+  "location": {
+    "label": "Location"
+  },
   "major": {
     "label": "Major"
   },
