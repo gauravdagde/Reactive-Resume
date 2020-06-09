@@ -14,7 +14,7 @@ const { data, theme } = state;
 
 const Profile = () => (
     <div>
-        <h1 className="font-bold text-5xl" style={{ color: theme.colors.accent }}>
+        <h1 className="font-bold text-6xl" style={{ color: theme.colors.accent }}>
             {data.profile.firstName} {data.profile.lastName}
         </h1>
         <h6 className="font-medium text-sm">{data.profile.subtitle}</h6>
@@ -34,13 +34,13 @@ const ContactItem = ({ icon, value, link = '#' }) =>
                 }
             </span>
             <a href={link}>
-            <span className="font-medium break-all">{value}</span>
+                <span className="font-medium break-all">{value}</span>
             </a>
         </div>
     );
 
 const Heading = ({ title }) => (
-    <h6 className="text-xs font-bold uppercase mt-6 mb-2 border-b" style={{ borderColor: theme.colors.accent, color: theme.colors.accent }}>
+    <h6 className="text-md font-bold uppercase mt-6 mb-2 border-b" style={{ borderColor: theme.colors.accent, color: theme.colors.accent }}>
         {title}
     </h6>
 );
@@ -58,8 +58,8 @@ const WorkItem = x => (
     <div key={x.id} className="mt-3">
         <div className="flex justify-between">
             <div>
-            <h6 className="font-semibold">{x.title}{x.location ? ', ' : ''}{x.location}</h6>
-            <p className="text-xs">{x.role}</p>
+            <h6 className="font-semibold">{x.role}</h6>
+            <p className="text-xs">{x.title}{x.location ? ', ' : ''}{x.location}</p>
             </div>
             <span className="text-xs font-medium">
             ({x.start} - {x.end})
@@ -82,8 +82,8 @@ const EducationItem = x => (
     <div key={x.id} className="mt-3">
         <div className="flex justify-between">
             <div>
-            <h6 className="font-semibold">{x.name}{x.location ? ', ' : ''}{x.location}</h6>
-            <p className="text-xs">{x.major}</p>
+            <h6 className="font-semibold">{x.major}</h6>
+            <p className="text-xs">{x.name}{x.location ? ', ' : ''}{x.location}</p>
             </div>
             <div className="flex flex-col items-end">
             <span className="text-sm font-bold">{x.grade}</span>
@@ -145,6 +145,9 @@ const SkillItem = x => (
     className="text-xs py-1 rounded-full px-2 font-medium my-2 mr-2"
     style={{
         backgroundColor: '#eeeeee',
+        minWidth: '60px',
+        display: 'flex',
+        justifyContent: 'center'
     }}
     >
         {x.skill}
