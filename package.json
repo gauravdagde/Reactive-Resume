@@ -7,6 +7,7 @@
     "npm": "6.14.4"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.1",
     "@fullhuman/postcss-purgecss": "^2.1.2",
     "@testing-library/jest-dom": "^5.5.0",
     "@testing-library/react": "^10.0.3",

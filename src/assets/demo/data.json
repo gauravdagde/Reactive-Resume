@@ -13,7 +13,9 @@
       },
       "phone": "+1 661-808-4188",
       "website": "nancyontheweb.com",
-      "email": "nancyjack43@gmail.com"
+      "email": "nancyjack43@gmail.com",
+      "linkedin": "https://www.linkedin.com/in/jane-doe",
+      "github": "https://github.com/jane-doe"
     },
     "objective": {
       "enable": true,
