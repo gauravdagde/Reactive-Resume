@@ -1,5 +1,9 @@
 import React, { useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { 
+    GithubFilled,
+    LinkedinFilled
+ } from '@ant-design/icons';
 
 import AppContext from '../../context/AppContext';
 
@@ -20,8 +24,14 @@ const Profile = () => (
 const ContactItem = ({ icon, value, link = '#' }) =>
     value && (
         <div className="flex items-center my-2">
-            <span className="material-icons text-lg mr-2" style={{ color: theme.colors.accent }}>
-                {icon}
+            <span className="material-icons text-lg mr-2" style={{ color: theme.colors.accent, display: 'inherit' }}>
+                {
+                    icon === 'github' ? <GithubFilled />
+                    :
+                    icon === 'linkedin' ? <LinkedinFilled />
+                    :
+                    icon
+                }
             </span>
             <a href={link}>
             <span className="font-medium break-all">{value}</span>
@@ -171,6 +181,11 @@ const References = () =>
         </div>
     );
 
+const formatDisplayURL = (url) => {
+    const items = url.split('/').filter(x => x !== '' && x !=='http:' && x !== 'https:');
+    return items.map(i => i.replace('www.', '')).join('/');  
+}
+
 return (
     <div
         className="p-10"
@@ -186,18 +201,28 @@ return (
             </div>
 
             <div className="col-span-1 text-xs">
+                <ContactItem icon="location_on" value={data.profile.address.line3} />
                 <ContactItem icon="phone" value={data.profile.phone} link={`tel:${data.profile.phone}`} />
-                <ContactItem
-                    icon="language"
-                    value={data.profile.website}
-                    link={`http://${data.profile.website}`}
-                />
                 <ContactItem
                     icon="email"
                     value={data.profile.email}
                     link={`mailto:${data.profile.email}`}
                 />
-                <ContactItem icon="location_on" value={data.profile.address.line3} />
+                <ContactItem
+                    icon="language"
+                    value={data.profile.website}
+                    link={`http://${data.profile.website}`}
+                />
+                <ContactItem 
+                    icon="github" 
+                    value={formatDisplayURL(data.profile.github)} 
+                    link={data.profile.github}
+                />
+                <ContactItem 
+                    icon="linkedin" 
+                    value={formatDisplayURL(data.profile.linkedin)}
+                    link={data.profile.linkedin}
+                />
             </div>
         </div>
 
