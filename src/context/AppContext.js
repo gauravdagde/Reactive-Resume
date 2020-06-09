@@ -22,6 +22,8 @@ const initialState = {
       phone: '',
       website: '',
       email: '',
+      linkedin: '',
+      github: ''
     },
     objective: {
       enable: true,
