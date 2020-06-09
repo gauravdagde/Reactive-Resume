@@ -78,7 +78,7 @@ const Objective = () =>
     data.objective.enable && (
         <div>
             <Heading title={data.objective.heading} />
-            <p className="text-sm text-justify">{data.objective.body}</p>
+            <ReactMarkdown className="text-sm text-justify" source={data.objective.body} />
         </div>
     );
 
