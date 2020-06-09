@@ -28,5 +28,11 @@
   },
   "email": {
     "label": "Email Address"
+  },
+  "linkedin": {
+      "label": "Linkedin URL"
+  }, 
+  "github": {
+    "label": "GitHub URL"
   }
 }
