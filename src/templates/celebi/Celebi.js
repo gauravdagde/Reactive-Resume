@@ -198,9 +198,12 @@ const Celebi = () => {
             fontFamily: theme.font.family,
             backgroundColor: theme.colors.background,
             color: theme.colors.primary,
+            minHeight: '29.7cm'
         }}
         >
-            <div className="grid grid-cols-12">
+            <div className="grid grid-cols-12"
+                style={{'minHeight': 'inherit'}}
+            >
                 <div
                     className="sidebar col-span-4 pb-8 ml-8 z-10 text-center"
                     style={{ backgroundColor: `rgba(${r}, ${g}, ${b}, 0.1)`, marginTop: '160px' }}

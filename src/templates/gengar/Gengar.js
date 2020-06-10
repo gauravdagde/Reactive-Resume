@@ -187,9 +187,12 @@ return (
             fontFamily: theme.font.family,
             backgroundColor: theme.colors.background,
             color: theme.colors.primary,
+            minHeight: '29.7cm'
         }}
     >
-        <div className="grid grid-cols-12">
+        <div className="grid grid-cols-12"
+            style={{'minHeight': 'inherit'}}
+        >
             <div
                 className="col-span-4 px-6 py-8"
                 style={{ backgroundColor: theme.colors.accent, color: theme.colors.background }}
