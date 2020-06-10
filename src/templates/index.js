@@ -14,6 +14,12 @@ export default [
     preview: OnyxPreview,
   },
   {
+    key: 'charizard',
+    name: 'Charizard',
+    component: Charizard,
+    preview: CharizardPreivew,
+  },
+  {
     key: 'pikachu',
     name: 'Pikachu',
     component: Pikachu,
@@ -42,11 +48,5 @@ export default [
     name: 'Celebi',
     component: Celebi,
     preview: CelebiPreview,
-  },
-  {
-    key: 'charizard',
-    name: 'Charizard',
-    component: Charizard,
-    preview: CharizardPreivew,
   },
 ];
