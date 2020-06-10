@@ -105,7 +105,7 @@ const importJson = (event, dispatch) => {
 };
 
 let saveAsPdfTimer = null;
-const saveAsPdf = (pageRef, panZoomRef, quality, type) => {
+const saveAsPdf = (pageRef, panZoomRef, quality, type, customFileName) => {
     if(saveAsPdfTimer){
         return;
     }
@@ -121,9 +121,9 @@ const saveAsPdf = (pageRef, panZoomRef, quality, type) => {
             }).then(canvas => {
                 const image = canvas.toDataURL('image/jpeg', quality / 100);
                 const doc = new jsPDF({
-                orientation: 'portrait',
-                unit: 'px',
-                format: type === 'unconstrained' ? [canvas.width, canvas.height] : 'a4',
+                    orientation: 'portrait',
+                    unit: 'px',
+                    format: type === 'unconstrained' ? [canvas.width, canvas.height] : 'a4',
                 });
 
                 const pageWidth = doc.internal.pageSize.getWidth();
@@ -140,12 +140,16 @@ const saveAsPdf = (pageRef, panZoomRef, quality, type) => {
                 let marginY = 0;
 
                 if (type !== 'unconstrained') {
-                marginX = (pageWidth - canvasWidth) / 2;
-                marginY = (pageHeight - canvasHeight) / 2;
+                    marginX = (pageWidth - canvasWidth) / 2;
+                    marginY = (pageHeight - canvasHeight) / 2;
                 }
 
                 doc.addImage(image, 'JPEG', marginX, marginY, canvasWidth, canvasHeight, null, 'SLOW');
-                doc.save(`RxResume_${Date.now()}.pdf`);
+                if(customFileName){
+                    doc.save(`${customFileName}.pdf`);
+                }else{
+                    doc.save(`RxResume_${Date.now()}.pdf`);
+                }
                 saveAsPdfTimer = null;
                 resolve();
             });
@@ -154,7 +158,7 @@ const saveAsPdf = (pageRef, panZoomRef, quality, type) => {
 }
     
 let saveAsMultiPagePdfTimer = null;
-const saveAsMultiPagePdf = (pageRef, panZoomRef, quality) => {
+const saveAsMultiPagePdf = (pageRef, panZoomRef, quality, customFileName) => {
     if(saveAsMultiPagePdfTimer){
         return;
     }
@@ -170,9 +174,9 @@ const saveAsMultiPagePdf = (pageRef, panZoomRef, quality) => {
             }).then(canvas => {
                 const image = canvas.toDataURL('image/jpeg', quality / 100);
                 const doc = new jsPDF({
-                orientation: 'portrait',
-                unit: 'px',
-                format: 'a4',
+                    orientation: 'portrait',
+                    unit: 'px',
+                    format: 'a4',
                 });
 
                 const pageHeight = doc.internal.pageSize.getHeight();
@@ -185,13 +189,16 @@ const saveAsMultiPagePdf = (pageRef, panZoomRef, quality) => {
                 heightLeft -= pageHeight;
 
                 while (heightLeft >= 0) {
-                marginTop = heightLeft - canvasHeight;
-                doc.addPage();
-                doc.addImage(image, 'JPEG', 0, marginTop, canvasWidth, canvasHeight);
-                heightLeft -= pageHeight;
+                    marginTop = heightLeft - canvasHeight;
+                    doc.addPage();
+                    doc.addImage(image, 'JPEG', 0, marginTop, canvasWidth, canvasHeight);
+                    heightLeft -= pageHeight;
                 }
-
-                doc.save(`RxResume_${Date.now()}.pdf`);
+                if(customFileName){
+                    doc.save(`${customFileName}.pdf`);
+                }else{
+                    doc.save(`RxResume_${Date.now()}.pdf`);
+                }
                 saveAsMultiPagePdfTimer = null;
                 resolve();
             });
