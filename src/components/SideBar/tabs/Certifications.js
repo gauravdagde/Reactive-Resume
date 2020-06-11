@@ -18,7 +18,7 @@ const CertificationsTab = ({ data, onChange }) => {
 
   return (
     <>
-      <div className="my-6 grid grid-cols-6 items-center">
+      <div className="mb-6 grid grid-cols-6 items-center">
         <div className="col-span-1">
           <Checkbox
             checked={data.certifications.enable}
