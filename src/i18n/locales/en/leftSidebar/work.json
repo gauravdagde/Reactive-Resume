@@ -1,11 +1,11 @@
 {
   "name": {
-    "label": "Name"
+    "label": "Employer"
   },
   "location": {
     "label": "Location"
   },
   "role": {
-    "label": "Role"
+    "label": "Job Title"
   }
 }
