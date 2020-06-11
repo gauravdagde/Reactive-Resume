@@ -1,7 +1,12 @@
 import React, { useContext } from 'react';
 import ReactMarkdown from 'react-markdown';
+import { 
+    GithubFilled,
+    LinkedinFilled
+ } from '@ant-design/icons';
 
 import AppContext from '../../context/AppContext';
+import { formatDisplayURL } from '../../utils';
 
 const Onyx = () => {
 const context = useContext(AppContext);
@@ -10,27 +15,27 @@ const { data, theme } = state;
 
 const Profile = () => (
     <div>
-        <h1 className="font-bold text-4xl" style={{ color: theme.colors.accent }}>
+        <h1 className="font-bold text-6xl" style={{ color: theme.colors.accent }}>
             {data.profile.firstName} {data.profile.lastName}
         </h1>
         <h6 className="font-medium text-sm">{data.profile.subtitle}</h6>
-
-        <div className="flex flex-col mt-4 text-xs">
-            <span>{data.profile.address.line1}</span>
-            <span>{data.profile.address.line2}</span>
-            <span>{data.profile.address.line3}</span>
-        </div>
     </div>
 );
 
 const ContactItem = ({ icon, value, link = '#' }) =>
     value && (
-        <div className="flex items-center my-3">
-            <span className="material-icons text-lg mr-2" style={{ color: theme.colors.accent }}>
-            {icon}
+        <div className="flex items-center my-2">
+            <span className="material-icons text-lg mr-2" style={{ color: theme.colors.accent, display: 'inherit' }}>
+                {
+                    icon === 'github' ? <GithubFilled />
+                    :
+                    icon === 'linkedin' ? <LinkedinFilled />
+                    :
+                    icon
+                }
             </span>
             <a href={link}>
-            <span className="font-medium break-all">{value}</span>
+                <span className="font-medium break-all">{value}</span>
             </a>
         </div>
     );
@@ -193,6 +198,7 @@ return (
             </div>
 
             <div className="col-span-1 text-xs">
+                <ContactItem icon="location_on" value={data.profile.address.line3} />
                 <ContactItem icon="phone" value={data.profile.phone} link={`tel:${data.profile.phone}`} />
                 <ContactItem
                     icon="language"
@@ -204,7 +210,16 @@ return (
                     value={data.profile.email}
                     link={`mailto:${data.profile.email}`}
                 />
-                <ContactItem icon="location_on" value={data.profile.address.line3} />
+                <ContactItem 
+                    icon="github" 
+                    value={formatDisplayURL(data.profile.github)} 
+                    link={data.profile.github}
+                />
+                <ContactItem 
+                    icon="linkedin" 
+                    value={formatDisplayURL(data.profile.linkedin)}
+                    link={data.profile.linkedin}
+                />
             </div>
         </div>
 

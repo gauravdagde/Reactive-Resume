@@ -206,6 +206,11 @@ const saveAsMultiPagePdf = (pageRef, panZoomRef, quality, customFileName) => {
     });
 }
 
+const formatDisplayURL = (url) => {
+    const items = url.split('/').filter(x => x !== '' && x !=='http:' && x !== 'https:');
+    return items.map(i => i.replace('www.', '')).join('/');  
+}
+
 export {
     move,
     hexToRgb,
@@ -218,4 +223,5 @@ export {
     importJson,
     saveAsPdf,
     saveAsMultiPagePdf,
+    formatDisplayURL
 };
