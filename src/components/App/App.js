@@ -6,8 +6,7 @@ import { PanZoom } from 'react-easy-panzoom';
 import AppContext from '../../context/AppContext';
 import PageContext from '../../context/PageContext';
 
-import LeftSidebar from '../LeftSidebar/LeftSidebar';
-import RightSidebar from '../RightSidebar/RightSidebar';
+import SideBar from '../SideBar/SideBar';
 
 import templates from '../../templates';
 import PageController from '../../shared/PageController';
@@ -36,10 +35,12 @@ const App = () => {
 
     return (
         <Suspense fallback="Loading...">
-            <div className="h-screen items-center">
-                <LeftSidebar/>
+            <div className="h-screen items-center flex">
+                <SideBar/>
 
-                <div className="relative z-10 h-screen overflow-hidden flex justify-center items-center">
+                <div className="relative z-10 h-screen overflow-hidden flex justify-center items-center"
+                    style={{'flex': 1}}
+                >
                     <PanZoom
                         ref={panZoomRef}
                         minZoom="0.4"
@@ -54,7 +55,7 @@ const App = () => {
                         {templates.find(x => theme.layout.toLowerCase() === x.key).component()}
                         </div>
                     </PanZoom>
-
+                    <PanZoomAnimation />
                     <PageController />
                 </div>
 
@@ -62,9 +63,6 @@ const App = () => {
                     {templates.find(x => theme.layout.toLowerCase() === x.key).component()}
                 </div>
 
-                <RightSidebar />
-
-                <PanZoomAnimation />
                 <PrintDialog />
             </div>
         </Suspense>
