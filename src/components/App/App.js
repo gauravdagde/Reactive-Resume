@@ -52,7 +52,7 @@ const App = () => {
                         style={{ outline: 'none' }}
                     >
                         <div id="page" ref={pageRef} className="shadow-2xl break-words">
-                        {templates.find(x => theme.layout.toLowerCase() === x.key).component()}
+                            {templates.find(x => theme.layout.toLowerCase() === x.key).component()}
                         </div>
                     </PanZoom>
                     <PanZoomAnimation />
