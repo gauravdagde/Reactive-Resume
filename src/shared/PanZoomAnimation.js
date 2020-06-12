@@ -17,7 +17,7 @@ const PanZoomAnimation = () => {
             className={`centered absolute inset-0 mt-24 transition-all duration-15s00 ease-in-out ${
                 animationVisible ? 'opacity-100 z-20' : 'opacity-0 z-0'
             }`}
-            style={{'width': '350px'}}
+            style={{'width': '350px', 'pointerEvents': 'none'}}
         >
             <div className="px-12 rounded-lg shadow-2xl bg-white">
                 <video src={animation} autoPlay muted loop />
