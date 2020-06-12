@@ -16,9 +16,9 @@ const Onyx = () => {
     const Profile = () => (
         <div>
             <h1 className="font-bold text-6xl" style={{ color: theme.colors.accent }}>
-                {data.profile.firstName} {data.profile.lastName}
+                {data.basics.name}
             </h1>
-            <h6 className="font-medium text-sm">{data.profile.subtitle}</h6>
+            <h6 className="font-medium text-sm">{data.basics.label}</h6>
         </div>
     );
 
@@ -200,28 +200,38 @@ const Onyx = () => {
                 </div>
 
                 <div className="col-span-1 text-xs">
-                    <ContactItem icon="location_on" value={data.profile.address.line3} />
-                    <ContactItem icon="phone" value={data.profile.phone} link={`tel:${data.profile.phone}`} />
+                    <ContactItem icon="location_on" value={data.basics.location.city + (data.basics.location.region ? `, ${data.basics.location.region}`: '')} />
+                    <ContactItem icon="phone" value={data.basics.phone} link={`tel:${data.basics.phone}`} />
                     <ContactItem
                         icon="email"
-                        value={data.profile.email}
-                        link={`mailto:${data.profile.email}`}
+                        value={data.basics.email}
+                        link={`mailto:${data.basics.email}`}
                     />
                     <ContactItem
                         icon="language"
-                        value={data.profile.website}
-                        link={`http://${data.profile.website}`}
+                        value={data.basics.website}
+                        link={`http://${data.basics.website}`}
                     />
-                    <ContactItem 
-                        icon="github" 
-                        value={formatDisplayURL(data.profile.github)} 
-                        link={data.profile.github}
-                    />
-                    <ContactItem 
-                        icon="linkedin" 
-                        value={formatDisplayURL(data.profile.linkedin)}
-                        link={data.profile.linkedin}
-                    />
+                    {
+                        data.basics.github ? 
+                        <ContactItem 
+                            icon="github" 
+                            value={formatDisplayURL(data.basics.github)} 
+                            link={data.basics.github}
+                        />
+                        :
+                        null
+                    }
+                    {
+                        data.basics.linkedin ?
+                        <ContactItem 
+                            icon="linkedin" 
+                            value={formatDisplayURL(data.basics.linkedin)}
+                            link={data.basics.linkedin}
+                        />
+                        :
+                        null
+                    }
                 </div>
             </div>
 

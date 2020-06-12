@@ -13,9 +13,8 @@ const { r, g, b } = hexToRgb(theme.colors.accent) || {};
 
 const FullName = () => (
     <div>
-        <h1 className="text-2xl font-bold leading-tight">{data.profile.firstName}</h1>
-        <h1 className="text-2xl font-bold leading-tight">{data.profile.lastName}</h1>
-        <div className="text-xs font-medium mt-2">{data.profile.subtitle}</div>
+        <h1 className="text-2xl font-bold leading-tight">{data.basics.name}</h1>
+        <div className="text-xs font-medium mt-2">{data.basics.label}</div>
     </div>
 );
 
@@ -203,18 +202,18 @@ return (
 
                 <hr className="w-1/4 my-5 opacity-50" />
 
-                <ContactItem icon="phone" value={data.profile.phone} link={`tel:${data.profile.phone}`} />
+                <ContactItem icon="phone" value={data.basics.phone} link={`tel:${data.basics.phone}`} />
                 <ContactItem
                     icon="email"
-                    value={data.profile.email}
-                    link={`mailto:${data.profile.email}`}
+                    value={data.basics.email}
+                    link={`mailto:${data.basics.email}`}
                 />
                 <ContactItem
                     icon="language"
-                    value={data.profile.website}
-                    link={`http://${data.profile.website}`}
+                    value={data.basics.website}
+                    link={`http://${data.basics.website}`}
                 />
-                <ContactItem icon="location_on" value={data.profile.address.line3} />
+                <ContactItem icon="location_on" value={data.basics.location.city + (data.basics.location.region ? `, ${data.basics.location.region}`: '')} />
             </div>
 
             <div

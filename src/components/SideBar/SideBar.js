@@ -19,7 +19,7 @@ import AboutTab from './tabs/About';
 import SettingsTab from './tabs/Settings';
 
 const Sidebar = () => {
-    const { t } = useTranslation('rightSidebar');
+    const { t } = useTranslation('sideBar');
 
     const context = useContext(AppContext);
     const { state, dispatch } = context;
@@ -27,8 +27,8 @@ const Sidebar = () => {
     
     const tabs = [
         { 
-            key: 'profile', 
-            name: data.profile.heading 
+            key: 'basics', 
+            name: data.basics.heading 
         },
         { 
             key: 'objective', 
@@ -109,7 +109,7 @@ const Sidebar = () => {
 
     const renderTabs = () => {
         switch (currentTab) {
-            case 'profile':
+            case 'basics':
                 return <ProfileTab data={data} onChange={onChange} />;
             case 'objective':
                 return <ObjectiveTab data={data} onChange={onChange} />;

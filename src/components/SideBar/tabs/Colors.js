@@ -31,7 +31,7 @@ const colorOptions = [
 ];
 
 const ColorsTab = ({ theme, onChange }) => {
-  const { t } = useTranslation('rightSidebar');
+  const { t } = useTranslation('sideBar');
 
   const copyColorToClipboard = color => {
     copyToClipboard(color);

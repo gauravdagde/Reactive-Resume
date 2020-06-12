@@ -49,7 +49,7 @@ const WorkTab = ({ data, onChange }) => {
 };
 
 const Form = ({ item, onChange, identifier = '' }) => {
-    const { t } = useTranslation(['leftSidebar', 'app']);
+    const { t } = useTranslation(['sideBar', 'app']);
 
     return (
         <div>

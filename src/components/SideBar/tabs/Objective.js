@@ -6,7 +6,7 @@ import TextField from '../../../shared/TextField';
 import Checkbox from '../../../shared/Checkbox';
 
 const ObjectiveTab = ({ data, onChange }) => {
-  const { t } = useTranslation('leftSidebar');
+  const { t } = useTranslation('sideBar');
 
   return (
     <div>

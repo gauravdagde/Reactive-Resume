@@ -16,7 +16,7 @@ const fontOptions = [
 ];
 
 const FontsTab = ({ theme, onChange }) => {
-  const { t } = useTranslation('rightSidebar');
+  const { t } = useTranslation('sideBar');
 
   return (
     <div className="grid grid-cols-1 gap-6">

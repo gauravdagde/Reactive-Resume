@@ -74,7 +74,7 @@ const LanguagesTab = ({ data, onChange }) => {
 };
 
 const Form = ({ item, onChange, identifier = '' }) => {
-  const { t } = useTranslation('leftSidebar');
+  const { t } = useTranslation('sideBar');
 
   return (
     <div>

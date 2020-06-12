@@ -43,9 +43,9 @@ const Celebi = () => {
         <header style={styles.header}>
             <div className="ml-6">
                 <h1 className="tracking-wide uppercase font-semibold" style={{ fontSize: '2.75em' }}>
-                {data.profile.firstName} {data.profile.lastName}
+                    {data.basics.name}
                 </h1>
-                <h6 className="text-lg tracking-wider uppercase">{data.profile.subtitle}</h6>
+                <h6 className="text-lg tracking-wider uppercase">{data.basics.label}</h6>
             </div>
         </header>
     );
@@ -72,13 +72,20 @@ const Celebi = () => {
             <Heading title="Contact" className="mt-8 w-3/4 mx-auto" />
             <div className="mb-3">
                 <h6 className="text-xs font-bold">Address</h6>
-                <p className="text-sm">{data.profile.address.line1}</p>
-                <p className="text-sm">{data.profile.address.line2}</p>
-                <p className="text-sm">{data.profile.address.line3}</p>
+                <p className="text-sm">{data.basics.location.address}</p>
+                <p className="text-sm">
+                    {data.basics.location.city}
+                    {
+                        data.basics.location.region ? 
+                        `, ${data.basics.location.region}`
+                        :
+                        ''
+                    }
+                </p>
             </div>
-            <ContactItem label="Phone" value={data.profile.phone} />
-            <ContactItem label="Email Address" value={data.profile.email} />
-            <ContactItem label="Website" value={data.profile.website} />
+            <ContactItem label="Phone" value={data.basics.phone} />
+            <ContactItem label="Email Address" value={data.basics.email} />
+            <ContactItem label="Website" value={data.basics.website} />
         </div>
     );
 

@@ -4,104 +4,94 @@ import { useTranslation } from 'react-i18next';
 import TextField from '../../../shared/TextField';
 
 const ProfileTab = ({ data, onChange }) => {
-const { t } = useTranslation('leftSidebar');
+const { t } = useTranslation('sideBar');
 
 return (
     <div>
-        <div className="grid grid-cols-2 col-gap-4">
-            <TextField
-                className="mb-6"
-                label={t('profile.firstName.label')}
-                placeholder="Jane"
-                value={data.profile.firstName}
-                onChange={v => onChange('data.profile.firstName', v)}
-            />
-
-            <TextField
-                className="mb-6"
-                label={t('profile.lastName.label')}
-                placeholder="Doe"
-                value={data.profile.lastName}
-                onChange={v => onChange('data.profile.lastName', v)}
-            />
-        </div>
+        <TextField
+            className="mb-6"
+            label={t('basics.name.label')}
+            placeholder="Jane Doe"
+            value={data.basics.name}
+            onChange={v => onChange('data.basics.name', v)}
+        />
 
         <TextField
             className="mb-6"
-            label={t('profile.subtitle.label')}
+            label={t('basics.label.label')}
             placeholder="Full-Stack Web Developer"
-            value={data.profile.subtitle}
-            onChange={v => onChange('data.profile.subtitle', v)}
+            value={data.basics.label}
+            onChange={v => onChange('data.basics.label', v)}
         />
 
         <hr className="my-6" />
 
         <TextField
             className="mb-6"
-            label={t('profile.address.line1.label')}
+            label={t('basics.location.address.label')}
             placeholder="Palladium Complex"
-            value={data.profile.address.line1}
-            onChange={v => onChange('data.profile.address.line1', v)}
+            value={data.basics.location.address}
+            onChange={v => onChange('data.basics.location.address', v)}
         />
 
         <TextField
             className="mb-6"
-            label={t('profile.address.line2.label')}
+            label={t('basics.location.city.label')}
             placeholder="140 E 14th St"
-            value={data.profile.address.line2}
-            onChange={v => onChange('data.profile.address.line2', v)}
+            value={data.basics.location.city}
+            onChange={v => onChange('data.basics.location.city', v)}
         />
 
         <TextField
             className="mb-6"
-            label={t('profile.address.line3.label')}
+            label={t('basics.location.region.label')}
             placeholder="New York, NY 10003 USA"
-            value={data.profile.address.line3}
-            onChange={v => onChange('data.profile.address.line3', v)}
+            value={data.basics.location.region}
+            onChange={v => onChange('data.basics.location.region', v)}
         />
 
         <hr className="my-6" />
 
         <TextField
             className="mb-6"
-            label={t('profile.phone.label')}
+            label={t('basics.phone.label')}
             placeholder="+1 541 754 3010"
-            value={data.profile.phone}
-            onChange={v => onChange('data.profile.phone', v)}
+            value={data.basics.phone}
+            onChange={v => onChange('data.basics.phone', v)}
         />
 
         <TextField
             className="mb-6"
-            label={t('profile.email.label')}
+            label={t('basics.email.label')}
             placeholder="jane.doe@example.com"
-            value={data.profile.email}
-            onChange={v => onChange('data.profile.email', v)}
+            value={data.basics.email}
+            onChange={v => onChange('data.basics.email', v)}
         />
 
         <hr className="my-6" />
 
         <TextField
             className="mb-6"
-            label={t('profile.website.label')}
+            label={t('basics.website.label')}
             placeholder="janedoe.me"
-            value={data.profile.website}
-            onChange={v => onChange('data.profile.website', v)}
+            value={data.basics.website}
+            onChange={v => onChange('data.basics.website', v)}
         />
 
         <TextField
             className="mb-6"
-            label={t('profile.linkedin.label')}
+            label={t('basics.linkedin.label')}
             placeholder="https://www.linkedin.com/in/jane-doe"
-            value={data.profile.linkedin}
-            onChange={v => onChange('data.profile.linkedin', v)}
+            value={data.basics.linkedin}
+            onChange={v => onChange('data.basics.linkedin', v)}
         />
 
         <TextField
             className="mb-6"
-            label={t('profile.github.label')}
+            label={t('basics.github.label')}
             placeholder="https://github.com/jane-doe"
-            value={data.profile.github}
-            onChange={v => onChange('data.profile.github', v)}
+            value={data.basics.github}
+            onChange={v => onChange('data.basics.github', v)}
         />
 
     </div>

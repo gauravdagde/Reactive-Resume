@@ -11,7 +11,7 @@ import { importJson } from '../../../utils';
 const ActionsTab = ({ data, theme, dispatch }) => {
   const pageContext = useContext(PageContext);
   const { setPrintDialogOpen } = pageContext;
-  const { t } = useTranslation('rightSidebar');
+  const { t } = useTranslation('sideBar');
   const fileInputRef = useRef(null);
 
   const exportToJson = () => {

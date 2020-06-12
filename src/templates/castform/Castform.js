@@ -11,9 +11,9 @@ const Castform = () => {
     const PersonalInformation = () => (
         <div className="pt-5 px-5">
             <h1 className="text-2xl font-bold">
-                {data.profile.firstName} {data.profile.lastName}
+                {data.basics.name}
             </h1>
-            <h5>{data.profile.subtitle}</h5>
+            <h5>{data.basics.label}</h5>
         </div>
     );
 
@@ -29,9 +29,14 @@ const Castform = () => {
     const Address = () => (
         <div className="px-5 my-2">
             <h6 className="text-xs font-bold">Address</h6>
-            <div className="text-sm">{data.profile.address.line1}</div>
-            <div className="text-sm">{data.profile.address.line2}</div>
-            <div className="text-sm">{data.profile.address.line3}</div>
+            <div className="text-sm">{data.basics.location.address}</div>
+            <div className="text-sm">
+                {data.basics.location.city}
+                {
+                    data.basics.location.region ? 
+                    `, ${data.basics.location.region}`: ''
+                }
+            </div>
         </div>
     );
 
@@ -49,16 +54,16 @@ const Castform = () => {
         <div>
             <Heading title="Contact Information" />
             <Address />
-            <ContactItem title="Phone" value={data.profile.phone} link={`tel:${data.profile.phone}`} />
+            <ContactItem title="Phone" value={data.basics.phone} link={`tel:${data.basics.phone}`} />
             <ContactItem
                 title="Email Address"
-                value={data.profile.email}
-                link={`mailto:${data.profile.email}`}
+                value={data.basics.email}
+                link={`mailto:${data.basics.email}`}
             />
             <ContactItem
                 title="Website"
-                value={data.profile.website}
-                link={`http://${data.profile.website}`}
+                value={data.basics.website}
+                link={`http://${data.basics.website}`}
             />
         </div>
     );

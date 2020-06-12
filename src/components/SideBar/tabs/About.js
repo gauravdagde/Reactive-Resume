@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans, useTranslation } from 'react-i18next';
 
 const AboutTab = () => {
-  const { t } = useTranslation('rightSidebar');
+  const { t } = useTranslation('sideBar');
 
   return (
     <div>

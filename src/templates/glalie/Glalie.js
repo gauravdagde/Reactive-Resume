@@ -13,13 +13,12 @@ const { r, g, b } = hexToRgb(theme.colors.accent) || {};
 
 const FullName = () => (
     <div className="text-4xl font-bold leading-none">
-        <h1>{data.profile.firstName}</h1>
-        <h1>{data.profile.lastName}</h1>
+        <h1>{data.basics.name}</h1>
     </div>
 );
 
 const Subtitle = () => (
-    <div className="tracking-wide text-xs uppercase font-medium">{data.profile.subtitle}</div>
+    <div className="tracking-wide text-xs uppercase font-medium">{data.basics.label}</div>
 );
 
 const ContactItem = ({ title, value }) =>
@@ -49,17 +48,24 @@ const ContactInformation = () => (
         </div>
 
         <div className="grid grid-cols-1 row-gap-4">
-            <ContactItem title="Phone Number" value={data.profile.phone} />
-            <ContactItem title="Email Address" value={data.profile.email} />
-            <ContactItem title="Website" value={data.profile.website} />
+            <ContactItem title="Phone Number" value={data.basics.phone} />
+            <ContactItem title="Email Address" value={data.basics.email} />
+            <ContactItem title="Website" value={data.basics.website} />
 
             <div className="flex flex-col">
                 <i className="material-icons text-lg" style={{ color: theme.colors.accent }}>
                     home
                 </i>
-                <p className="text-sm">{data.profile.address.line1}</p>
-                <p className="text-sm">{data.profile.address.line2}</p>
-                <p className="text-sm">{data.profile.address.line3}</p>
+                <p className="text-sm">{data.basics.location.address}</p>
+                <p className="text-sm">
+                    {data.basics.location.city}
+                    {
+                        data.basics.location.region ? 
+                        `, ${data.basics.location.region}`
+                        :
+                        ''
+                    }
+                </p>
             </div>
         </div>
     </div>

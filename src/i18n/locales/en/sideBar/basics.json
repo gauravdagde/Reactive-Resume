@@ -1,0 +1,41 @@
+{
+    "firstName": {
+        "label": "First Name"
+    },
+    "lastName": {
+        "label": "Last Name"
+    },
+    "name": {
+        "label": "Name"
+    },
+    "label": {
+        "label": "Subtitle"
+    },
+    "location": {
+        "label": "Address",
+        "address": {
+        "label": "Address"
+        },
+        "city": {
+        "label": "City"
+        },
+        "region": {
+        "label": "Province / State"
+        }
+    },
+    "phone": {
+        "label": "Phone Number"
+    },
+    "website": {
+        "label": "Website"
+    },
+    "email": {
+        "label": "Email Address"
+    },
+    "linkedin": {
+        "label": "Linkedin URL"
+    }, 
+    "github": {
+        "label": "Github URL"
+    }
+}

@@ -5,7 +5,7 @@ import { languages } from '../../../i18n';
 import Dropdown from '../../../shared/Dropdown';
 
 const SettingsTab = ({ settings, onChange }) => {
-  const { t } = useTranslation('rightSidebar');
+  const { t } = useTranslation('sideBar');
 
   return (
     <div>
