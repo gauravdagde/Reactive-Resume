@@ -41,7 +41,7 @@ const Celebi = () => {
 
     const Header = () => (
         <header style={styles.header}>
-            <div className="ml-6">
+            <div className="text-center">
                 <h1 className="tracking-wide uppercase font-semibold" style={{ fontSize: '2.75em' }}>
                     {data.basics.name}
                 </h1>
