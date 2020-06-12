@@ -22,19 +22,19 @@ const PrintDialog = () => {
 
     return (
         <div
-            className={`absolute inset-0 transition-all duration-200 ease-in-out ${
-                isPrintDialogOpen ? 'opacity-100 z-20' : 'opacity-0 z-0'
+            className={`absolute flex justify-center items-center inset-0 transition-all duration-200 ${
+                isPrintDialogOpen ? 'opacity-100 z-20' : 'opacity-0 z-20'
             }`}
-            style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
+            style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)', pointerEvents: `${isPrintDialogOpen ? 'unset' : 'none'}`}}
             onClick={() => {
                 setPrintDialogOpen(false);
             }}
         >
             <div
-                className="centered py-8 px-12 bg-white shadow-xl rounded w-full md:w-1/3"
+                className="py-8 px-12 bg-white shadow-xl rounded w-full md:w-1/3"
                 onClick={e => {
-                e.stopPropagation();
-                e.preventDefault();
+                    e.stopPropagation();
+                    e.preventDefault();
                 }}
             >
                 <h5 className="mb-6 text-lg font-bold">{t('printDialog.heading')}</h5>
