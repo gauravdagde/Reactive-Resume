@@ -1,15 +1,15 @@
 {
   "projects": {
-    "default": "rx-resume"
+    "simple-react-resume": "simple-react-resume"
   },
   "targets": {
-    "rx-resume": {
+    "simple-react-resume": {
       "hosting": {
         "app": [
-          "rx-resume"
+          "simple-react-resume"
         ],
         "docs": [
-          "docs-rx-resume"
+          "docs-simple-react-resume"
         ]
       }
     }
