@@ -35,7 +35,7 @@ const AboutTab = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="https://github.com/AmruthPillai/Reactive-Resume/issues/new"
+            href="https://github.com/SHENG-X/Reactive-Resume/issues/new"
             className="mt-4 bg-red-600 hover:bg-red-700 text-white text-sm font-medium py-2 px-5 rounded"
           >
             <div className="flex justify-center items-center">
@@ -47,7 +47,7 @@ const AboutTab = () => {
           <a
             target="_blank"
             rel="noopener noreferrer"
-            href="mailto:im.amruth@gmail.com?subject=Feature Request/Reporting a Bug in Reactive Resume: "
+            href="mailto:sheng.x.work@gmail.com?subject=Feature Request/Reporting a Bug in Reactive Resume: "
             className="mt-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-5 rounded"
           >
             <div className="flex justify-center items-center">
@@ -68,7 +68,7 @@ const AboutTab = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/AmruthPillai/Reactive-Resume"
+          href="https://github.com/SHENG-X/Reactive-Resume"
           className="flex justify-center items-center mt-4 bg-green-600 hover:bg-green-700 text-white text-sm font-medium py-2 px-5 rounded"
         >
           <div className="flex justify-center items-center">
@@ -88,7 +88,7 @@ const AboutTab = () => {
         <a
           target="_blank"
           rel="noopener noreferrer"
-          href="https://github.com/AmruthPillai/Reactive-Resume/blob/master/LICENSE"
+          href="https://github.com/SHENG-X/Reactive-Resume/blob/master/LICENSE"
           className="flex justify-center items-center mt-4 bg-gray-600 hover:bg-gray-700 text-white text-sm font-medium py-2 px-5 rounded"
         >
           <div className="flex justify-center items-center">
@@ -104,11 +104,11 @@ const AboutTab = () => {
             Made with Love by
             <a
               className="font-bold hover:underline"
-              href="https://www.amruthpillai.com/"
+              href="https://www.linkedin.com/in/sheng-x/"
               rel="noopener noreferrer"
               target="_blank"
             >
-              Amruth Pillai
+              Sheng Xiao
             </a>
           </Trans>
         </p>
